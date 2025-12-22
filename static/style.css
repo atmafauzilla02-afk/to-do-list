@@ -1,0 +1,76 @@
+.edit-btn {
+    display: none;       /* tersembunyi default */
+    cursor: pointer;
+    margin-right: 0.5rem;
+    color: #0d6efd;
+}
+
+.task-item:hover .edit-btn {
+    display: inline-block;   /* muncul saat hover */
+}
+/* Sidebar */
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.sidebar a i {
+    width: 20px;
+    text-align: center;
+    color: #6c757d;
+}
+
+.sidebar a:hover i {
+    color: #e44232;
+}
+
+/* Date group */
+.date-group {
+    margin-bottom: 24px;
+}
+
+.date-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Task row */
+.task-row {
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+}
+
+.task-row:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.task-row .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-name {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.task-row .right {
+    font-size: 13px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}

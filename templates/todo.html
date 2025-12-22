@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>To-Do</title></head>
+<body>
+<h2>Halo, {{ session.username }}</h2>
+
+<form method="post">
+    <input name="task" placeholder="Tugas baru" required>
+    <button>Tambah</button>
+</form>
+
+<ul>
+{% for t in tasks %}
+<li>{{ t.task }}</li>
+{% endfor %}
+</ul>
+
+<a href="/logout">Logout</a>
+</body>
+</html>
