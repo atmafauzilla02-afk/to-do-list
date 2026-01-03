@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Overdue Tasks</title>
+</head>
+<body>
+
+<h2>Overdue Tasks</h2>
+
+{% if tasks %}
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <b>{{ task[1] }}</b><br>
+                Due: {{ task[3] }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Tidak ada task yang overdue 🎉</p>
+{% endif %}
+
+</body>
+</html>

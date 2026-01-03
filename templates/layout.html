@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo</title>
+    <style>
+        body { font-family: Arial; display:flex }
+        nav { width:200px; padding:20px; border-right:1px solid #ddd }
+        main { padding:20px; flex:1 }
+        .task { padding:8px; border-left:5px solid #555; margin-bottom:6px }
+        .add-btn { color:#d1453b; cursor:pointer; margin-bottom:15px; display:inline-block }
+        #modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.4) }
+        #modal form { background:#fff; padding:20px; width:300px; margin:100px auto }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/todo">Inbox</a><br>
+    <a href="/overdue">Overdue</a>
+</nav>
+
+<main>
+    {% if page == 'inbox' %}
+        <h3>Inbox</h3>
+    {% elif page == 'overdue' %}
+        <h3>Overdue</h3>
+    {% endif %}
+
+    <div class="add-btn" onclick="openModal()">+ Add task</div>
+
+    {% for t in tasks %}
+        <div class="task">
+            {{ t[1] }} ({{ t[4] }})
+        </div>
+    {% else %}
+        <p>Empty</p>
+    {% endfor %}
+</main>
+
+<!-- MODAL ADD TASK -->
+<div id="modal">
+    <form action="/add_task" method="post">
+        <h4>Add task</h4>
+        <input name="task" placeholder="Task" required><br><br>
+        <select name="priority">
+            <option value="1">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">High</option>
+        </select><br><br>
+        <input type="date" name="due_date"><br><br>
+        <input type="time" name="due_time"><br><br>
+        <button>Add</button>
+        <button type="button" onclick="closeModal()">Cancel</button>
+    </form>
+</div>
+
+<script>
+function openModal(){ document.getElementById('modal').style.display='block' }
+function closeModal(){ document.getElementById('modal').style.display='none' }
+</script>
+
+</body>
+</html>
